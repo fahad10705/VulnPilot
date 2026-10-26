@@ -12,16 +12,19 @@ from vulnpilot import chain, pipeline
 def check():
     chain.DEMO_FILE = os.path.join(tempfile.mkdtemp(), "demo_chain.json")  # do not touch the real record
     assert chain.chain_mode() == "demo", "With no keys the chain must be in demo mode"
+    attack = None
     for log in ("auth_attack.log", "clean.log"):
         result = pipeline.run_analysis(read_text("sample_logs/" + log))
+        if log == "auth_attack.log":
+            attack = result  # the tamper test below needs a result that has evidence lines
         assert len(result.statuses) == 13, f"{log}: expected 13 status rows, got {len(result.statuses)}"
         assert result.report_text.startswith("# "), f"{log}: report must start with '# '"
         assert len(result.report_hash) == 64, f"{log}: report_hash must be 64 characters"
         assert result.investigation.source.startswith("OFFLINE"), f"{log}: with no key the AI must be in offline mode"
-    anchored = chain.anchor(result.report_hash)
+    anchored = chain.anchor(attack.report_hash)
     assert anchored["ok"] and anchored["mode"] == "demo", f"Demo anchoring failed: {anchored}"
-    assert chain.verify(result.report_hash)["found"], "The anchored hash must verify"
-    tampered, _ = pipeline.compute_hash(result.report_text, ["X" + result.evidence_lines[0]] + result.evidence_lines[1:])
+    assert chain.verify(attack.report_hash)["found"], "The anchored hash must verify"
+    tampered, _ = pipeline.compute_hash(attack.report_text, ["X" + attack.evidence_lines[0]] + attack.evidence_lines[1:])
     assert not chain.verify(tampered)["found"], "A tampered hash must NOT verify"
     return PASS
 
