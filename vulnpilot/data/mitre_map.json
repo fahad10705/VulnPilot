@@ -1,0 +1,6 @@
+{
+  "brute_force": {"id": "T1110", "name": "Brute Force", "tactic": "Credential Access"},
+  "valid_accounts": {"id": "T1078", "name": "Valid Accounts", "tactic": "Initial Access"},
+  "remote_services_ssh": {"id": "T1021.004", "name": "Remote Services: SSH", "tactic": "Lateral Movement"},
+  "sudo_abuse": {"id": "T1548.003", "name": "Sudo and Sudo Caching", "tactic": "Privilege Escalation"}
+}

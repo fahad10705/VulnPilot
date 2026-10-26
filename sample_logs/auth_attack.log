@@ -1,0 +1,17 @@
+Oct 24 09:58:02 web01 sshd[2101]: Accepted password for alice from 198.51.100.23 port 51822 ssh2
+Oct 24 10:01:15 web01 sshd[2140]: Accepted publickey for bob from 203.0.113.45 port 40312 ssh2
+Oct 24 10:12:44 web01 sshd[2188]: Failed password for invalid user test from 192.0.2.10 port 40122 ssh2
+Oct 24 10:12:47 web01 sshd[2190]: Failed password for admin from 192.0.2.10 port 40130 ssh2
+Oct 24 10:12:50 web01 sshd[2192]: Failed password for admin from 192.0.2.10 port 40138 ssh2
+Oct 24 10:12:53 web01 sshd[2194]: Failed password for admin from 192.0.2.10 port 40146 ssh2
+Oct 24 10:12:56 web01 sshd[2196]: Failed password for admin from 192.0.2.10 port 40154 ssh2
+Oct 24 10:12:59 web01 sshd[2198]: Failed password for admin from 192.0.2.10 port 40162 ssh2
+Oct 24 10:13:02 web01 sshd[2200]: Failed password for admin from 192.0.2.10 port 40170 ssh2
+Oct 24 10:13:05 web01 sshd[2202]: Failed password for admin from 192.0.2.10 port 40178 ssh2
+Oct 24 10:13:08 web01 sshd[2204]: Accepted password for admin from 192.0.2.10 port 40186 ssh2
+Oct 24 10:13:40 web01 sudo:    admin : TTY=pts/0 ; PWD=/home/admin ; USER=root ; COMMAND=/bin/bash
+Oct 24 10:21:09 web01 sshd[2260]: Failed password for alice from 198.51.100.23 port 51900 ssh2
+Oct 24 10:21:20 web01 sshd[2262]: Accepted password for alice from 198.51.100.23 port 51904 ssh2
+Oct 24 10:35:31 web01 sshd[2301]: Accepted publickey for carol from 203.0.113.77 port 38811 ssh2
+Oct 24 10:48:12 web01 sshd[2340]: Failed password for bob from 203.0.113.45 port 40399 ssh2
+Oct 24 10:48:19 web01 sshd[2342]: Accepted publickey for bob from 203.0.113.45 port 40401 ssh2
