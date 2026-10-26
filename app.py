@@ -68,7 +68,7 @@ with tab_ioc:
     st.dataframe(pd.DataFrame(mitre))
 
 with tab_time:
-    st.plotly_chart(make_timeline_chart(timeline), use_container_width=True)
+    st.plotly_chart(make_timeline_chart(timeline), width="stretch")
 
 with tab_ai:
     st.metric("Risk level", investigation.risk_level)
