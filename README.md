@@ -111,13 +111,20 @@ the owner and the status (STUB = dummy data, REAL = working).
 2. Replace the dummy body of its functions with real logic. **Do not change function names,
    arguments or return shapes**; other files depend on them. Shared shapes live in `vulnpilot/models.py`.
 3. Run the app and check it still works end to end with the sample log.
-4. Work on your own branch and open a pull request:
+4. Send your change as a pull request. You do not need write access: you work on your own fork.
+   With the GitHub CLI (`gh`, logged in with `gh auth login`), this is the whole flow
+   (the example below is for the parser; use your own file and branch name):
    ```bash
-   git checkout -b my-module-name
-   git add vulnpilot/my_file.py
-   git commit -m "Implement my_file"
-   git push -u origin my-module-name
+   gh repo fork theamanullahdev/VulnPilot --clone
+   cd VulnPilot
+   git checkout -b parser-module
+   git add vulnpilot/parser.py
+   git commit -m "Implement parser"
+   git push -u origin parser-module
+   gh pr create --fill
    ```
+   No `gh`? Click **Fork** on https://github.com/theamanullahdev/VulnPilot, clone your fork,
+   push your branch there, then click **Compare & pull request** on GitHub.
 5. Keep code plain and readable. Use simple names. Update the header `Status:` line.
 
 ## Settings and secrets

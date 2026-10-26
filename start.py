@@ -42,8 +42,11 @@ def install_requirements():
     # newest pip first: older pip cannot resume a download that stalls on a slow connection
     subprocess.call([VENV_PYTHON, "-m", "pip", "install", "--quiet", "--upgrade", "pip"])
     # long timeout, many retries and resume, so a slow connection does not fail the install
-    subprocess.check_call([VENV_PYTHON, "-m", "pip", "install", "--default-timeout", "60", "--retries", "10",
-                           "--resume-retries", "30", "-r", os.path.join(ROOT, "requirements.txt")])
+    command = [VENV_PYTHON, "-m", "pip", "install", "--default-timeout", "60", "--retries", "10",
+               "-r", os.path.join(ROOT, "requirements.txt")]
+    if subprocess.call(command + ["--resume-retries", "30"]) != 0:
+        # old pip does not know --resume-retries (or the network failed): try once more without it
+        subprocess.check_call(command)
 
 
 def make_env_file():
