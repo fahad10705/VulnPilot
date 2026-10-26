@@ -16,8 +16,9 @@ Status: written, not yet tested with a real install
 import os
 import shutil
 import subprocess
-import sys
+import threading
 import venv
+import webbrowser
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 VENV_DIR = os.path.join(ROOT, ".venv")
@@ -55,8 +56,11 @@ def make_env_file():
 
 def run_app():
     """Start the Streamlit app."""
-    print("Starting VulnPilot ... open the link Streamlit prints below.")
-    subprocess.call([VENV_PYTHON, "-m", "streamlit", "run", os.path.join(ROOT, "app.py")], cwd=ROOT)
+    print("Starting VulnPilot at http://localhost:8501 (stop with Ctrl+C) ...")
+    # headless skips Streamlit's first-run email question, which would hang scripts and AI agents
+    env = dict(os.environ, STREAMLIT_SERVER_HEADLESS="true", STREAMLIT_BROWSER_GATHER_USAGE_STATS="false")
+    threading.Timer(4, webbrowser.open, ["http://localhost:8501"]).start()  # open the browser ourselves
+    subprocess.call([VENV_PYTHON, "-m", "streamlit", "run", os.path.join(ROOT, "app.py")], cwd=ROOT, env=env)
 
 
 if __name__ == "__main__":
