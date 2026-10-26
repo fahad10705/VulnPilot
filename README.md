@@ -21,15 +21,15 @@ You need: **Git** and **Python 3.11 or newer** (check with `python3 --version`, 
 
 **Linux / Mac:**
 ```bash
-git clone <REPO_URL>
-cd <REPO_FOLDER>
+git clone https://github.com/theamanullahdev/VulnPilot.git
+cd VulnPilot
 python3 start.py
 ```
 
 **Windows (PowerShell or Command Prompt):**
 ```powershell
-git clone <REPO_URL>
-cd <REPO_FOLDER>
+git clone https://github.com/theamanullahdev/VulnPilot.git
+cd VulnPilot
 python start.py
 ```
 
@@ -74,7 +74,7 @@ If PowerShell blocks the script, run `Set-ExecutionPolicy -Scope Process Bypass`
 ## Notes for AI agents (read this first)
 
 If a human gave you this README and an empty folder, do exactly this:
-1. `git clone <REPO_URL>` into the folder, then `cd` into the cloned folder.
+1. `git clone https://github.com/theamanullahdev/VulnPilot.git` into the folder, then `cd` into the cloned folder.
 2. Run `python3 start.py` (Windows: `python start.py`). It blocks while the app serves on
    http://localhost:8501, so run it in the background or in a separate terminal. For setup only, do
    the manual steps above and skip `streamlit run`.
