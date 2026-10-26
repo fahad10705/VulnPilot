@@ -1,0 +1,87 @@
+[
+ {
+  "finding_type": "brute_force",
+  "title": "Brute force followed by successful login",
+  "severity": "high",
+  "description": "7 failed logins for admin from 192.0.2.10, then a success.",
+  "evidence_lines": [
+   "Oct 24 10:12:47 web01 sshd[2190]: Failed password for admin from 192.0.2.10 port 40130 ssh2",
+   "Oct 24 10:12:50 web01 sshd[2192]: Failed password for admin from 192.0.2.10 port 40138 ssh2",
+   "Oct 24 10:12:53 web01 sshd[2194]: Failed password for admin from 192.0.2.10 port 40146 ssh2",
+   "Oct 24 10:12:56 web01 sshd[2196]: Failed password for admin from 192.0.2.10 port 40154 ssh2",
+   "Oct 24 10:12:59 web01 sshd[2198]: Failed password for admin from 192.0.2.10 port 40162 ssh2",
+   "Oct 24 10:13:02 web01 sshd[2200]: Failed password for admin from 192.0.2.10 port 40170 ssh2",
+   "Oct 24 10:13:05 web01 sshd[2202]: Failed password for admin from 192.0.2.10 port 40178 ssh2",
+   "Oct 24 10:13:08 web01 sshd[2204]: Accepted password for admin from 192.0.2.10 port 40186 ssh2"
+  ],
+  "source_ip": "192.0.2.10",
+  "users": [
+   "admin"
+  ]
+ },
+ {
+  "finding_type": "password_spray",
+  "title": "Password spray",
+  "severity": "medium",
+  "description": "198.51.100.7 tried 8 different usernames.",
+  "evidence_lines": [
+   "Oct 24 10:20:01 web01 sshd[2230]: Failed password for alice from 198.51.100.7 port 50001 ssh2",
+   "Oct 24 10:20:04 web01 sshd[2232]: Failed password for bob from 198.51.100.7 port 50003 ssh2",
+   "Oct 24 10:20:07 web01 sshd[2234]: Failed password for carol from 198.51.100.7 port 50005 ssh2",
+   "Oct 24 10:20:10 web01 sshd[2236]: Failed password for invalid user deploy from 198.51.100.7 port 50007 ssh2",
+   "Oct 24 10:20:13 web01 sshd[2238]: Failed password for invalid user git from 198.51.100.7 port 50009 ssh2",
+   "Oct 24 10:20:16 web01 sshd[2240]: Failed password for invalid user ubuntu from 198.51.100.7 port 50011 ssh2",
+   "Oct 24 10:20:19 web01 sshd[2242]: Failed password for invalid user oracle from 198.51.100.7 port 50013 ssh2",
+   "Oct 24 10:20:22 web01 sshd[2244]: Failed password for invalid user postgres from 198.51.100.7 port 50015 ssh2"
+  ],
+  "source_ip": "198.51.100.7",
+  "users": [
+   "alice",
+   "bob",
+   "carol",
+   "deploy",
+   "git",
+   "oracle",
+   "postgres",
+   "ubuntu"
+  ]
+ },
+ {
+  "finding_type": "invalid_users",
+  "title": "Attempts with non-existent usernames",
+  "severity": "low",
+  "description": "198.51.100.7 tried 5 usernames that do not exist.",
+  "evidence_lines": [
+   "Oct 24 10:20:10 web01 sshd[2236]: Failed password for invalid user deploy from 198.51.100.7 port 50007 ssh2",
+   "Oct 24 10:20:13 web01 sshd[2238]: Failed password for invalid user git from 198.51.100.7 port 50009 ssh2",
+   "Oct 24 10:20:16 web01 sshd[2240]: Failed password for invalid user ubuntu from 198.51.100.7 port 50011 ssh2",
+   "Oct 24 10:20:19 web01 sshd[2242]: Failed password for invalid user oracle from 198.51.100.7 port 50013 ssh2",
+   "Oct 24 10:20:22 web01 sshd[2244]: Failed password for invalid user postgres from 198.51.100.7 port 50015 ssh2"
+  ],
+  "source_ip": "198.51.100.7",
+  "users": [
+   "deploy",
+   "git",
+   "oracle",
+   "postgres",
+   "ubuntu"
+  ]
+ },
+ {
+  "finding_type": "invalid_users",
+  "title": "Attempts with non-existent usernames",
+  "severity": "low",
+  "description": "203.0.113.99 tried 3 usernames that do not exist.",
+  "evidence_lines": [
+   "Oct 24 10:35:31 web01 sshd[2310]: Failed password for invalid user test from 203.0.113.99 port 44001 ssh2",
+   "Oct 24 10:35:34 web01 sshd[2312]: Failed password for invalid user guest from 203.0.113.99 port 44003 ssh2",
+   "Oct 24 10:35:37 web01 sshd[2314]: Failed password for invalid user support from 203.0.113.99 port 44005 ssh2"
+  ],
+  "source_ip": "203.0.113.99",
+  "users": [
+   "guest",
+   "support",
+   "test"
+  ]
+ }
+]

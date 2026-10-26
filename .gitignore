@@ -5,3 +5,4 @@ __pycache__/
 *.pyc
 .streamlit/secrets.toml
 .DS_Store
+.demo_chain.json

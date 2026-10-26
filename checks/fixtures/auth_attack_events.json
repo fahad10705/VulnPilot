@@ -1,0 +1,254 @@
+[
+ {
+  "line_number": 1,
+  "time": "Oct 24 09:58:02",
+  "user": "alice",
+  "source_ip": "198.51.100.23",
+  "result": "success",
+  "invalid_user": false,
+  "raw_line": "Oct 24 09:58:02 web01 sshd[2101]: Accepted password for alice from 198.51.100.23 port 51822 ssh2"
+ },
+ {
+  "line_number": 2,
+  "time": "Oct 24 10:01:15",
+  "user": "bob",
+  "source_ip": "203.0.113.45",
+  "result": "success",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:01:15 web01 sshd[2140]: Accepted publickey for bob from 203.0.113.45 port 40312 ssh2"
+ },
+ {
+  "line_number": 4,
+  "time": "Oct 24 10:05:10",
+  "user": "carol",
+  "source_ip": "203.0.113.77",
+  "result": "failed",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:05:10 web01 sshd[2160]: Failed password for carol from 203.0.113.77 port 38800 ssh2"
+ },
+ {
+  "line_number": 5,
+  "time": "Oct 24 10:05:18",
+  "user": "carol",
+  "source_ip": "203.0.113.77",
+  "result": "success",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:05:18 web01 sshd[2162]: Accepted password for carol from 203.0.113.77 port 38802 ssh2"
+ },
+ {
+  "line_number": 6,
+  "time": "Oct 24 10:12:47",
+  "user": "admin",
+  "source_ip": "192.0.2.10",
+  "result": "failed",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:12:47 web01 sshd[2190]: Failed password for admin from 192.0.2.10 port 40130 ssh2"
+ },
+ {
+  "line_number": 7,
+  "time": "Oct 24 10:12:50",
+  "user": "admin",
+  "source_ip": "192.0.2.10",
+  "result": "failed",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:12:50 web01 sshd[2192]: Failed password for admin from 192.0.2.10 port 40138 ssh2"
+ },
+ {
+  "line_number": 8,
+  "time": "Oct 24 10:12:53",
+  "user": "admin",
+  "source_ip": "192.0.2.10",
+  "result": "failed",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:12:53 web01 sshd[2194]: Failed password for admin from 192.0.2.10 port 40146 ssh2"
+ },
+ {
+  "line_number": 9,
+  "time": "Oct 24 10:12:56",
+  "user": "admin",
+  "source_ip": "192.0.2.10",
+  "result": "failed",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:12:56 web01 sshd[2196]: Failed password for admin from 192.0.2.10 port 40154 ssh2"
+ },
+ {
+  "line_number": 10,
+  "time": "Oct 24 10:12:59",
+  "user": "admin",
+  "source_ip": "192.0.2.10",
+  "result": "failed",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:12:59 web01 sshd[2198]: Failed password for admin from 192.0.2.10 port 40162 ssh2"
+ },
+ {
+  "line_number": 11,
+  "time": "Oct 24 10:13:02",
+  "user": "admin",
+  "source_ip": "192.0.2.10",
+  "result": "failed",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:13:02 web01 sshd[2200]: Failed password for admin from 192.0.2.10 port 40170 ssh2"
+ },
+ {
+  "line_number": 12,
+  "time": "Oct 24 10:13:05",
+  "user": "admin",
+  "source_ip": "192.0.2.10",
+  "result": "failed",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:13:05 web01 sshd[2202]: Failed password for admin from 192.0.2.10 port 40178 ssh2"
+ },
+ {
+  "line_number": 13,
+  "time": "Oct 24 10:13:08",
+  "user": "admin",
+  "source_ip": "192.0.2.10",
+  "result": "success",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:13:08 web01 sshd[2204]: Accepted password for admin from 192.0.2.10 port 40186 ssh2"
+ },
+ {
+  "line_number": 15,
+  "time": "Oct 24 10:20:01",
+  "user": "alice",
+  "source_ip": "198.51.100.7",
+  "result": "failed",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:20:01 web01 sshd[2230]: Failed password for alice from 198.51.100.7 port 50001 ssh2"
+ },
+ {
+  "line_number": 16,
+  "time": "Oct 24 10:20:04",
+  "user": "bob",
+  "source_ip": "198.51.100.7",
+  "result": "failed",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:20:04 web01 sshd[2232]: Failed password for bob from 198.51.100.7 port 50003 ssh2"
+ },
+ {
+  "line_number": 17,
+  "time": "Oct 24 10:20:07",
+  "user": "carol",
+  "source_ip": "198.51.100.7",
+  "result": "failed",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:20:07 web01 sshd[2234]: Failed password for carol from 198.51.100.7 port 50005 ssh2"
+ },
+ {
+  "line_number": 18,
+  "time": "Oct 24 10:20:10",
+  "user": "deploy",
+  "source_ip": "198.51.100.7",
+  "result": "failed",
+  "invalid_user": true,
+  "raw_line": "Oct 24 10:20:10 web01 sshd[2236]: Failed password for invalid user deploy from 198.51.100.7 port 50007 ssh2"
+ },
+ {
+  "line_number": 19,
+  "time": "Oct 24 10:20:13",
+  "user": "git",
+  "source_ip": "198.51.100.7",
+  "result": "failed",
+  "invalid_user": true,
+  "raw_line": "Oct 24 10:20:13 web01 sshd[2238]: Failed password for invalid user git from 198.51.100.7 port 50009 ssh2"
+ },
+ {
+  "line_number": 20,
+  "time": "Oct 24 10:20:16",
+  "user": "ubuntu",
+  "source_ip": "198.51.100.7",
+  "result": "failed",
+  "invalid_user": true,
+  "raw_line": "Oct 24 10:20:16 web01 sshd[2240]: Failed password for invalid user ubuntu from 198.51.100.7 port 50011 ssh2"
+ },
+ {
+  "line_number": 21,
+  "time": "Oct 24 10:20:19",
+  "user": "oracle",
+  "source_ip": "198.51.100.7",
+  "result": "failed",
+  "invalid_user": true,
+  "raw_line": "Oct 24 10:20:19 web01 sshd[2242]: Failed password for invalid user oracle from 198.51.100.7 port 50013 ssh2"
+ },
+ {
+  "line_number": 22,
+  "time": "Oct 24 10:20:22",
+  "user": "postgres",
+  "source_ip": "198.51.100.7",
+  "result": "failed",
+  "invalid_user": true,
+  "raw_line": "Oct 24 10:20:22 web01 sshd[2244]: Failed password for invalid user postgres from 198.51.100.7 port 50015 ssh2"
+ },
+ {
+  "line_number": 23,
+  "time": "Oct 24 10:21:09",
+  "user": "alice",
+  "source_ip": "198.51.100.23",
+  "result": "failed",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:21:09 web01 sshd[2260]: Failed password for alice from 198.51.100.23 port 51900 ssh2"
+ },
+ {
+  "line_number": 24,
+  "time": "Oct 24 10:21:20",
+  "user": "alice",
+  "source_ip": "198.51.100.23",
+  "result": "success",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:21:20 web01 sshd[2262]: Accepted password for alice from 198.51.100.23 port 51904 ssh2"
+ },
+ {
+  "line_number": 26,
+  "time": "Oct 24 10:35:31",
+  "user": "test",
+  "source_ip": "203.0.113.99",
+  "result": "failed",
+  "invalid_user": true,
+  "raw_line": "Oct 24 10:35:31 web01 sshd[2310]: Failed password for invalid user test from 203.0.113.99 port 44001 ssh2"
+ },
+ {
+  "line_number": 27,
+  "time": "Oct 24 10:35:34",
+  "user": "guest",
+  "source_ip": "203.0.113.99",
+  "result": "failed",
+  "invalid_user": true,
+  "raw_line": "Oct 24 10:35:34 web01 sshd[2312]: Failed password for invalid user guest from 203.0.113.99 port 44003 ssh2"
+ },
+ {
+  "line_number": 28,
+  "time": "Oct 24 10:35:37",
+  "user": "support",
+  "source_ip": "203.0.113.99",
+  "result": "failed",
+  "invalid_user": true,
+  "raw_line": "Oct 24 10:35:37 web01 sshd[2314]: Failed password for invalid user support from 203.0.113.99 port 44005 ssh2"
+ },
+ {
+  "line_number": 29,
+  "time": "Oct 24 10:48:12",
+  "user": "bob",
+  "source_ip": "203.0.113.45",
+  "result": "failed",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:48:12 web01 sshd[2340]: Failed password for bob from 203.0.113.45 port 40399 ssh2"
+ },
+ {
+  "line_number": 30,
+  "time": "Oct 24 10:48:19",
+  "user": "bob",
+  "source_ip": "203.0.113.45",
+  "result": "success",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:48:19 web01 sshd[2342]: Accepted publickey for bob from 203.0.113.45 port 40401 ssh2"
+ },
+ {
+  "line_number": 31,
+  "time": "Oct 24 10:55:00",
+  "user": "dave",
+  "source_ip": "203.0.113.61",
+  "result": "success",
+  "invalid_user": false,
+  "raw_line": "Oct 24 10:55:00 web01 sshd[2360]: Accepted password for dave from 203.0.113.61 port 41000 ssh2"
+ }
+]

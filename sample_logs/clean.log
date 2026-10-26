@@ -1,0 +1,10 @@
+Oct 25 08:00:03 web01 sshd[3101]: Accepted publickey for alice from 198.51.100.23 port 52001 ssh2
+Oct 25 08:15:40 web01 CRON[3120]: pam_unix(cron:session): session opened for user root by (uid=0)
+Oct 25 08:42:11 web01 sshd[3150]: Accepted password for bob from 203.0.113.45 port 40501 ssh2
+Oct 25 09:03:27 web01 sshd[3170]: Failed password for carol from 203.0.113.77 port 38900 ssh2
+Oct 25 09:03:35 web01 sshd[3172]: Accepted password for carol from 203.0.113.77 port 38902 ssh2
+Oct 25 09:30:00 web01 sshd[3190]: Connection closed by 198.51.100.23 port 52001 [preauth]
+Oct 25 10:12:09 web01 sshd[3210]: Accepted publickey for dave from 203.0.113.61 port 41100 ssh2
+Oct 25 11:45:52 web01 sshd[3250]: Failed password for alice from 198.51.100.23 port 52044 ssh2
+Oct 25 11:46:03 web01 sshd[3252]: Accepted password for alice from 198.51.100.23 port 52046 ssh2
+Oct 25 12:00:01 web01 CRON[3300]: pam_unix(cron:session): session closed for user root
