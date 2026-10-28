@@ -8,7 +8,7 @@ Status values: `todo`, `in progress`, `review`, `done`. Update the Owner and Sta
 |---|---|---|---|---|---|---|---|
 | 1 | `vulnpilot/parser.py` | TODO | easy | 1-2 h | turn raw log text into a list of `LogEvent` (regex) | `check_parser.py` | todo |
 | 2 | `vulnpilot/detect_bruteforce.py` | TODO | medium | 2 h | many failed logins from one IP, then a success | `check_detect_bruteforce.py` | todo |
-| 3 | `vulnpilot/detect_password_spray.py` | TODO | medium | 2 h | one IP trying many different usernames | `check_detect_password_spray.py` | todo |
+| 3 | `vulnpilot/detect_password_spray.py` | AYESHA-81 | medium | 2 h | one IP trying many different usernames | `check_detect_password_spray.py` | done |
 | 4 | `vulnpilot/detect_invalid_users.py` | TODO | easy | 1 h | attempts with usernames that do not exist | `check_detect_invalid_users.py` | todo |
 | 5 | `vulnpilot/ioc.py` | TODO | easy | 1-2 h | extract attacker IPs and usernames from the findings | `check_ioc.py` | todo |
 | 6 | `vulnpilot/mitre.py` | TODO | easy | 1 h | map findings to MITRE ATT&CK using the JSON file | `check_mitre.py` | todo |
