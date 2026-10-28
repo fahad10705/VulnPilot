@@ -40,8 +40,10 @@ def get_setting(name):
 
 
 def ai_is_configured():
-    """True only if both the API key and the model id are set."""
-    return bool(get_setting("NEBIUS_API_KEY")) and bool(get_setting("NEBIUS_MODEL"))
+    """True if at least one AI service can be used (Nebius needs a key AND a model id; the others need a key)."""
+    nebius = bool(get_setting("NEBIUS_API_KEY")) and bool(get_setting("NEBIUS_MODEL"))
+    others = any(get_setting(name) for name in ("OPENROUTER_API_KEY", "GROQ_API_KEY", "GOOGLE_API_KEY"))
+    return nebius or others
 
 
 def chain_is_configured():

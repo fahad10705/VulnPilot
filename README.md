@@ -86,11 +86,15 @@ Everything below is optional for teammates. Settings live in `.env` locally (nev
 | `NEBIUS_API_KEY` | Nebius Token Factory key |
 | `NEBIUS_BASE_URL` | defaults to `https://api.tokenfactory.nebius.com/v1/` |
 | `NEBIUS_MODEL` | exact Nemotron model id from the Nebius model catalog (required for the AI step) |
+| `OPENROUTER_API_KEY` | free key from openrouter.ai; used for free NVIDIA Nemotron models (default `nvidia/nemotron-3.5-super-vl:free`) |
+| `GROQ_API_KEY` | free key from console.groq.com; fast backup (default `openai/gpt-oss-120b`) |
+| `GOOGLE_API_KEY` | free Google AI Studio key; backup (default `gemini-3.5-flash`) |
+| `OPENROUTER_MODEL`, `GROQ_MODEL`, `GOOGLE_MODEL` | optional: use a different model id first |
 | `SEPOLIA_RPC_URL` | a Sepolia RPC endpoint (Alchemy, Infura, QuickNode) |
 | `WALLET_PRIVATE_KEY` | key of a **throwaway testnet wallet only**, funded with free Sepolia ETH |
 | `CONTRACT_ADDRESS` | address of the deployed `EvidenceAnchor` contract |
 
-- **AI mode:** needs `NEBIUS_API_KEY` and `NEBIUS_MODEL`. Otherwise (or if the call fails) the app shows a clearly labelled **OFFLINE SAMPLE** report. The AI's "confirmed" claims are checked: a quote that is not a real evidence line is moved to hypotheses.
+- **AI mode:** every key is optional. The app tries the services in this order: Nebius (needs `NEBIUS_API_KEY` and `NEBIUS_MODEL`), OpenRouter, Groq, Google. If one fails (error, rate limit, timeout, broken answer) the next one is tried, so users always get an answer. The model that answered is shown in the AI tab. With no key, or if everything fails, a clearly labelled **OFFLINE SAMPLE** is shown. The AI's "confirmed" claims are checked: a quote that is not a real evidence line is moved to hypotheses.
 - **Blockchain mode:** needs `SEPOLIA_RPC_URL`, `CONTRACT_ADDRESS` and `WALLET_PRIVATE_KEY`. Otherwise **demo mode**: the hash is saved in a local file (`.demo_chain.json`), Verify works against it, and the app shows a banner.
 
 ### Deploy the contract (once)

@@ -2,7 +2,8 @@
 import os
 import tempfile
 
-for name in ("NEBIUS_API_KEY", "NEBIUS_MODEL", "SEPOLIA_RPC_URL", "CONTRACT_ADDRESS", "WALLET_PRIVATE_KEY"):
+for name in ("NEBIUS_API_KEY", "NEBIUS_MODEL", "OPENROUTER_API_KEY", "GROQ_API_KEY", "GOOGLE_API_KEY",
+             "SEPOLIA_RPC_URL", "CONTRACT_ADDRESS", "WALLET_PRIVATE_KEY"):
     os.environ[name] = ""  # make sure we test demo mode, whatever is in .env
 
 from common import PASS, main, read_text

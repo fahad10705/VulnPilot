@@ -98,6 +98,19 @@ def compute_hash(report_text, evidence_lines):
     return value, "real"
 
 
+def _basic_prompts(findings, risk):
+    """Built-in prompts, used only while prompts.py is not finished, so the AI still sees the real findings."""
+    user_lines = [f"Overall risk: {risk.level} (score {risk.score})"]
+    for reason in risk.reasons:
+        user_lines.append(f"Reason: {reason}")
+    number = 0
+    for finding in findings:
+        number = number + 1
+        user_lines += ["", f"Finding {number}: {finding.title} (severity {finding.severity})", finding.description,
+                       "Evidence lines:"] + list(finding.evidence_lines)
+    return dummies.dummy_prompts()[0], "\n".join(user_lines) + "\n"
+
+
 def _unique_evidence(findings):
     """Every evidence line once, in the order first seen."""
     lines = []
@@ -142,15 +155,21 @@ def run_analysis(log_text):
     result.timeline, _ = _call(result, "timeline", "build_timeline", (events, result.findings), dummies.dummy_timeline(), "timeline")
     result.risk, _ = _call(result, "risk", "score_risk", (result.findings,), dummies.dummy_risk(), "risk")
 
-    prompts, _ = _call(result, "prompts", "build_prompts", (result.findings, result.risk), dummies.dummy_prompts(), "prompts")
+    prompts, prompts_is_placeholder = _call(result, "prompts", "build_prompts", (result.findings, result.risk),
+                                            dummies.dummy_prompts(), "prompts")
+    if prompts_is_placeholder:
+        prompts = _basic_prompts(result.findings, result.risk)  # the AI still gets the real findings
 
     # The AI step is the lead's. It never raises: without a key or on any error it returns an OFFLINE SAMPLE.
     result.investigation = ai_client.investigate(result.findings, result.risk, prompts[0], prompts[1])
     if result.investigation.source.startswith("OFFLINE"):
         result.statuses.append({"module": "ai_client", "status": "offline", "note": "sample text, no AI call"})
-        result.warnings.append("AI is in offline mode: the investigation text is a sample, not written by Nemotron.")
+        result.warnings.append("AI is in offline mode: the investigation text is a sample, not written by an AI model.")
     else:
-        result.statuses.append({"module": "ai_client", "status": "real", "note": result.investigation.source})
+        note = result.investigation.source
+        if result.investigation.notes:
+            note += f" (after {len(result.investigation.notes)} failed attempt(s))"
+        result.statuses.append({"module": "ai_client", "status": "real", "note": note})
 
     result.report_text, _ = _call(result, "report", "build_report",
                                   (result.findings, result.indicators, result.timeline, result.mitre,

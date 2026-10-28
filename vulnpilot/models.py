@@ -77,7 +77,8 @@ class Investigation:
     confirmed: list = field(default_factory=list)      # facts backed by a log line (list of str)
     hypotheses: list = field(default_factory=list)     # guesses, clearly labelled (list of str)
     actions: list = field(default_factory=list)        # recommended next steps (list of str)
-    source: str = ""            # "Nebius Nemotron" or "OFFLINE SAMPLE"
+    source: str = ""            # the model that answered, e.g. "nvidia/nemotron-3.5-super-vl:free via OpenRouter", or "OFFLINE SAMPLE"
+    notes: list = field(default_factory=list)          # which services failed before this one answered (list of str)
 
 
 # The finished report plus its fingerprint. Lead-only (made by pipeline.py).

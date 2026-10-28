@@ -109,7 +109,11 @@ with tab_mitre:
         st.write("No MITRE techniques to show.")
 
 with tab_ai:
-    st.caption(f"Source: {result.investigation.source}")
+    st.caption(f"AI model used: {result.investigation.source}")
+    if result.investigation.notes:
+        with st.expander("How this answer was produced"):
+            for note in result.investigation.notes:
+                st.write("- " + note + ", so the next service was tried")
     st.write(result.investigation.summary)
     st.markdown("**Confirmed observations** (each one quotes a real log line)")
     for item in result.investigation.confirmed:

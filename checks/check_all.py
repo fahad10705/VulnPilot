@@ -2,6 +2,7 @@
 import sys
 
 from common import FAIL, run_and_print
+import check_ai_client
 import check_chain_helpers
 import check_detect_bruteforce
 import check_detect_invalid_users
@@ -21,7 +22,7 @@ CHECKS = [
     ("detect_password_spray", check_detect_password_spray), ("detect_invalid_users", check_detect_invalid_users),
     ("ioc", check_ioc), ("mitre", check_mitre), ("timeline", check_timeline), ("risk", check_risk),
     ("report", check_report), ("hashing", check_hashing), ("prompts", check_prompts),
-    ("chain_helpers", check_chain_helpers), ("pipeline (lead)", check_pipeline),
+    ("chain_helpers", check_chain_helpers), ("pipeline (lead)", check_pipeline), ("ai_client (lead)", check_ai_client),
 ]
 
 print("MODULE CHECKS   (PASS = done, STILL DUMMY = not written yet, FAIL = read the reason)\n")

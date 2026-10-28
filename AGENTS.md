@@ -37,13 +37,13 @@ returns a dummy placeholder from `dummies.py`, and has a marked block `### WRITE
 | contracts/EvidenceAnchor.sol | commented Solidity contract | TODO (blockchain pair) |
 
 Lead-only files (beginners and their agents never edit them): `app.py`, `start.py`, `pipeline.py`, `config.py`, `models.py`,
-`dummies.py`, `ai_client.py` (Nebius call), `chain.py` (web3 + wallet, demo mode when keys are missing), `charts.py`, `deploy/`, `checks/`.
+`dummies.py`, `ai_client.py` (AI call with a fallback chain), `chain.py` (web3 + wallet, demo mode when keys are missing), `charts.py`, `deploy/`, `checks/`.
 
 ## Pipeline fallback (important)
 `pipeline.py` calls every beginner function inside try/except and compares the result with the placeholder in `dummies.py`.
 Status per module: `real`, `dummy` (still the placeholder), `error` (crashed or wrong return type; the placeholder is used instead).
-The Streamlit sidebar shows this table, so one broken file never breaks the app. `ai_client.py` returns an OFFLINE SAMPLE
-without a key; `chain.py` runs in DEMO MODE without keys; `hashing.py` falls back to a built-in SHA-256 if it is not finished.
+The Streamlit sidebar shows this table, so one broken file never breaks the app. `ai_client.py` tries Nebius, OpenRouter, Groq and Google in order (whichever have a key) and returns an OFFLINE SAMPLE
+if none works; `chain.py` runs in DEMO MODE without keys; `hashing.py` falls back to a built-in SHA-256 if it is not finished.
 
 ## Check scripts
 `checks/check_<module>.py` runs one module against `sample_logs/auth_attack.log` (28 events, 4 findings) and `clean.log`
@@ -60,3 +60,4 @@ Checks use ready-made fixtures in `checks/fixtures/`, so every module can be tes
 - Use a throwaway testnet wallet, never a real one.
 - Do not push to main, deploy, or rewrite history without the lead's OK.
 - Do not guess the Nebius base URL or model name; they live in config.py / .env only.
+- Never paste an API key into chat, issues, code or commits. Keys live only in `.env` and Streamlit Secrets.
