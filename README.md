@@ -14,7 +14,13 @@ Security reports can be edited after the fact. VulnPilot fixes that:
 4. We take a SHA-256 fingerprint of the report and its evidence and **anchor it on the Sepolia blockchain**.
 5. A **Verify** button re-checks the fingerprint. Change one single character of the evidence ("Tamper test") and Verify fails.
 
-*(Screenshots will go here: findings tab, attack timeline, AI investigation, Verify passing, Verify failing after tampering.)*
+**Live demo:** https://vulnpilot.streamlit.app
+
+![Analysis results: stats, risk score and findings](docs/images/results.png)
+
+![AI investigation written by NVIDIA Nemotron, quoting real log lines](docs/images/ai-investigation.png)
+
+![Tamper test: one changed character makes Verify fail](docs/images/tamper-test.png)
 
 ---
 
